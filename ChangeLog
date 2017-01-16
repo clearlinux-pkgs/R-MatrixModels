@@ -1,0 +1,56 @@
+2012-01-12  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.3-1
+	(Depends): R >= 2.14.0, so we can
+	* man/getCall.Rd: remove entirely
+	* R/modelMatrix.R: ditto:
+	get rid of getCall (and all the new wrong R CMD check warnings).
+
+2011-08-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.3-0
+
+	* R/modelMatrix.R:
+	* NAMESPACE: only define & export getCall() if R < 2.14
+
+2011-02-17  Douglas Bates <bates@stat.wisc.edu>
+
+	* DESCRIPTION: Remove Encoding: directive.
+
+2011-01-17  Douglas Bates <bates@stat.wisc.edu>
+
+	* R/modelMatrix.R: Spelling correction.
+
+2010-11-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/AllClass.R: comment stopifnot() which prevents INSTALL
+
+2010-11-01  Douglas Bates  <bates@stat.wisc.edu>
+
+	* R/AllClass.R (rMod,glrMod): Initial attempt at using reference
+	classes for the response modules.  Still some problems with the
+	contains argument to setRefClass for GLMRespMod.
+
+2010-08-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/modelMatrix.R (model.Matrix, glm4): use argument
+	'drop.unused.levels' (and depend on Matrix version *-44).
+
+2010-08-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* NAMESPACE:
+	* R/AllGeneric.R, man/resid-et-al.Rd: define "ANY"-method (and
+	hence generic) for the three standard aliases
+	resid(), fitted.values() and coefficients(), and
+	* man/glm4.Rd: check some of these
+
+2010-08-09  Douglas Bates  <bates@stat.wisc.edu>
+
+	* R/modelMatrix.R: added "fitted" and "residuals" methods for
+	"respModule" classes.  Modified corresponding methods for
+	"glpModel" to chain to these.  Modified the reweightPred methods
+	to allow for ncol(sqrtXwt) > 1.
+
+	* DESCRIPTION (Version): 0.2-0, CRAN-released: ...
+
+

@@ -4,7 +4,7 @@
 #
 Name     : R-MatrixModels
 Version  : 0.4.1
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Summary  : Modelling with Sparse And Dense Matrices
@@ -19,12 +19,15 @@ No detailed description available
 %setup -q -c -n MatrixModels
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489098772
+export SOURCE_DATE_EPOCH=1492801442
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1489098772
+export SOURCE_DATE_EPOCH=1492801442
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -40,7 +43,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library MatrixModels
 
@@ -50,6 +53,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/MatrixModels/DESCRIPTION
 /usr/lib64/R/library/MatrixModels/INDEX
 /usr/lib64/R/library/MatrixModels/Meta/Rd.rds
+/usr/lib64/R/library/MatrixModels/Meta/features.rds
 /usr/lib64/R/library/MatrixModels/Meta/hsearch.rds
 /usr/lib64/R/library/MatrixModels/Meta/links.rds
 /usr/lib64/R/library/MatrixModels/Meta/nsInfo.rds

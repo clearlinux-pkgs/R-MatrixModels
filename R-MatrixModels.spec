@@ -4,7 +4,7 @@
 #
 Name     : R-MatrixModels
 Version  : 0.4.1
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Summary  : Modelling with Sparse And Dense Matrices
@@ -23,11 +23,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492801442
+export SOURCE_DATE_EPOCH=1492805288
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1492801442
+export SOURCE_DATE_EPOCH=1492805288
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

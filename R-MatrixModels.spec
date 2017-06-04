@@ -4,7 +4,7 @@
 #
 Name     : R-MatrixModels
 Version  : 0.4.1
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Summary  : Modelling with Sparse And Dense Matrices
@@ -23,11 +23,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492805288
+export SOURCE_DATE_EPOCH=1496597806
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1492805288
+export SOURCE_DATE_EPOCH=1496597806
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -37,7 +37,18 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
+
+mkdir -p ~/.R
+mkdir -p ~/.stash
+echo "CFLAGS = $CFLAGS -O3 -march=haswell -flto -ftree-vectorize " > ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library MatrixModels
+for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
+echo "CFLAGS = $CFLAGS -O3 -march=skylake-avx512 -flto -ftree-vectorize " > ~/.R/Makevars
+R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library MatrixModels
+for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx512 ; mv $i.avx512 ~/.stash/; done
+rm ~/.R/Makevars
+R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library MatrixModels
+cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C

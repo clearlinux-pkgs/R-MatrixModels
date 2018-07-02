@@ -4,7 +4,7 @@
 #
 Name     : R-MatrixModels
 Version  : 0.4.1
-Release  : 43
+Release  : 44
 URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Summary  : Modelling with Sparse And Dense Matrices

@@ -4,16 +4,16 @@
 #
 Name     : R-MatrixModels
 Version  : 0.4.1
-Release  : 47
+Release  : 48
 URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.4-1.tar.gz
 Summary  : Modelling with Sparse And Dense Matrices
 Group    : Development/Tools
 License  : GPL-2.0+
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-modular prediction and response module classes.
+No detailed description available
 
 %prep
 %setup -q -c -n MatrixModels
@@ -23,11 +23,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523316713
+export SOURCE_DATE_EPOCH=1552769521
 
 %install
+export SOURCE_DATE_EPOCH=1552769521
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523316713
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -62,8 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library MatrixModels|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  MatrixModels || :
 
 
 %files
@@ -87,3 +86,4 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/MatrixModels/help/paths.rds
 /usr/lib64/R/library/MatrixModels/html/00Index.html
 /usr/lib64/R/library/MatrixModels/html/R.css
+/usr/lib64/R/library/MatrixModels/tests/MModels.R

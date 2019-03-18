@@ -1,2 +1,5 @@
 # This file contains recursive sources that require this package
+R-MCMCpack
+R-SGP
+R-joineRML
 R-quantreg

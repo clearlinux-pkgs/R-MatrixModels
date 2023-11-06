@@ -6,10 +6,10 @@
 # autospec commit: 250a666
 #
 Name     : R-MatrixModels
-Version  : 0.5.2
-Release  : 84
-URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.5-2.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.5-2.tar.gz
+Version  : 0.5.3
+Release  : 85
+URL      : https://cran.r-project.org/src/contrib/MatrixModels_0.5-3.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/MatrixModels_0.5-3.tar.gz
 Summary  : Modelling with Sparse and Dense Matrices
 Group    : Development/Tools
 License  : GPL-2.0+
@@ -32,10 +32,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1699023651
+export SOURCE_DATE_EPOCH=1699289438
 
 %install
-export SOURCE_DATE_EPOCH=1699023651
+export SOURCE_DATE_EPOCH=1699289438
 rm -rf %{buildroot}
 LANG=C.UTF-8
 CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -77,3 +77,23 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/R/library/MatrixModels/DESCRIPTION
+/usr/lib64/R/library/MatrixModels/INDEX
+/usr/lib64/R/library/MatrixModels/Meta/Rd.rds
+/usr/lib64/R/library/MatrixModels/Meta/features.rds
+/usr/lib64/R/library/MatrixModels/Meta/hsearch.rds
+/usr/lib64/R/library/MatrixModels/Meta/links.rds
+/usr/lib64/R/library/MatrixModels/Meta/nsInfo.rds
+/usr/lib64/R/library/MatrixModels/Meta/package.rds
+/usr/lib64/R/library/MatrixModels/NAMESPACE
+/usr/lib64/R/library/MatrixModels/R/MatrixModels
+/usr/lib64/R/library/MatrixModels/R/MatrixModels.rdb
+/usr/lib64/R/library/MatrixModels/R/MatrixModels.rdx
+/usr/lib64/R/library/MatrixModels/help/AnIndex
+/usr/lib64/R/library/MatrixModels/help/MatrixModels.rdb
+/usr/lib64/R/library/MatrixModels/help/MatrixModels.rdx
+/usr/lib64/R/library/MatrixModels/help/aliases.rds
+/usr/lib64/R/library/MatrixModels/help/paths.rds
+/usr/lib64/R/library/MatrixModels/html/00Index.html
+/usr/lib64/R/library/MatrixModels/html/R.css
+/usr/lib64/R/library/MatrixModels/tests/MModels.R
